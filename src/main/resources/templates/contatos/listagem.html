@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de Contatos</title>
+    <link rel="stylesheet" href="../../static/css/estilos.css" th:href="@{/css/estilos.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="bg-dark">
+    <header>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container">
+          <a href="/contatos" id="logo" class="navbar-brand fs-2">FindPros</a>
+          <form class="d-flex" role="search">
+            <div class="form-floating me-2">
+              <input class="form-control h-2" type="search" id="search" nome="search" placeholder="Nome ou Especialidade" aria-label="Search">
+              <label class="form-label" for="search">Nome ou Especialidade</label>
+            </div>
+            <button class="btn btn-info h-2" type="submit">Buscar</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <section class="container mt-4">
+      <h3 class="text-light text-center">Lista de Contatos</h3>
+      <div class="text-center mt-3">
+        <a type="button" href="/contatos/formulario" class="btn btn-info w-25">Adicionar Novo</a>
+      </div>
+    </section>
+
+    <section class="container mt-4">
+      <table class="table">
+        <thead class="table-dark">
+        <tr class="fw-bold">
+          <th scope="col">NOME</th>
+          <th scope="col">ESPECIALIDADE</th>
+          <th scope="col">TELEFONE</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">CIDADE</th>
+          <th scope="col">ESTADO</th>
+        </tr>
+        </thead>
+        <tbody class="table-dark">
+        <tr th:each="contato : ${lista}">
+          <td th:text="${contato.nome}"></td>
+          <td th:text="${contato.especialidade}"></td>
+          <td th:text="${contato.telefone}"></td>
+          <td th:text="${contato.email}"></td>
+          <td th:text="${contato.cidade}"></td>
+          <td th:text="${contato.estado}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </body>
+</html>
