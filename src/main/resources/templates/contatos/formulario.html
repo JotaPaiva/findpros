@@ -1,139 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Cadastro de Contato</title>
-        <link rel="stylesheet" href="../../static/css/estilos.css" th:href="@{/css/estilos.css}">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    </head>
-    <body class="bg-dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de Contato</title>
+    <link rel="stylesheet" href="../../static/css/estilos.css" th:href="@{/css/estilos.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body class="bg-dark">
 
-        <header>
-            <nav class="navbar bg-body-tertiary">
-                <div class="container">
-                    <a href="/contatos" class="navbar-brand fs-2" id="logo">FindPros</a>
-                </div>
-            </nav>
-        </header>
+<header>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container">
+            <a href="/contatos" class="navbar-brand fs-2" id="logo">FindPros</a>
+        </div>
+    </nav>
+</header>
 
-        <section class="container mt-4 text-center">
-            <h3 class="text-light">Cadastrar Novo Contato</h3>
-            <span id="mensagemErro" class="text-light bg-danger"></span>
-        </section>
+<section class="container mt-4 text-center">
+    <h3 class="text-light">Cadastrar Novo Contato</h3>
+    <div class="alert alert-danger d-none text-center mt-4" id="exceptionAlert" role="alert">
+        <span id="mensagemErro"></span>
+    </div>
+</section>
 
-        <section class="container mt-4">
-            <div class="mb-3">
-                <form method="post" action="/contatos" id="meuFormulario">
+<section class="container mt-4">
+    <div class="mb-3">
+        <form method="post" action="/contatos" id="meuFormulario">
 
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="nome" name="nome" placeholder="Nome">
-                            <label class="form-label" for="nome">Nome</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="especialidade" name="especialidade" placeholder="Especialidade">
-                            <label class="form-label" for="especialidade">Especialidade</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="telefone" type="text" name="telefone" placeholder="Telefone">
-                            <label class="form-label" for="telefone">Telefone</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" type="email" id="email" name="email" placeholder="Email">
-                            <label class="form-label" for="email">E-Mail</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="logradouro" name="logradouro" placeholder="Logradouro">
-                            <label class="form-label" for="logradouro">Logradouro</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="numero" name="numero" placeholder="Número">
-                            <label class="form-label" for="numero">Número</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="bairro" name="bairro" placeholder="Bairro">
-                            <label class="form-label" for="bairro">Bairro</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="cidade" name="cidade" placeholder="Cidade">
-                            <label class="form-label" for="cidade">Cidade</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="estado" name="estado" placeholder="Estado">
-                            <label class="form-label" for="estado">Estado</label>
-                        </div>
-
-                        <div class="container">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="text-center">
-                                    <a href="/contatos" class="btn btn-light col-md-2">Voltar</a>
-                                    <input class="btn btn-info col-md-2" type="submit" value="Salvar">
-                                </div>
-                            </div>
-                        </div>
-
-                </form>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="nome" name="nome" placeholder="Nome">
+                <label class="form-label" for="nome">Nome</label>
             </div>
-        </section>
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                // Aplica a máscara de telefone (99) 99999-9999
-                $('#telefone').mask('(00) 00000-0000', { placeholder: '(__) _____-____' });
+            <div class="form-floating mb-3">
+                <input class="form-control" id="especialidade" name="especialidade" placeholder="Especialidade">
+                <label class="form-label" for="especialidade">Especialidade</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" id="telefone" type="text" name="telefone" placeholder="Telefone">
+                <label class="form-label" for="telefone">Telefone</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" type="email" id="email" name="email" placeholder="Email">
+                <label class="form-label" for="email">E-Mail</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" id="logradouro" name="logradouro" placeholder="Logradouro">
+                <label class="form-label" for="logradouro">Logradouro</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" id="numero" name="numero" placeholder="Número">
+                <label class="form-label" for="numero">Número</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" id="bairro" name="bairro" placeholder="Bairro">
+                <label class="form-label" for="bairro">Bairro</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" id="cidade" name="cidade" placeholder="Cidade">
+                <label class="form-label" for="cidade">Cidade</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input class="form-control" id="estado" name="estado" placeholder="Estado">
+                <label class="form-label" for="estado">Estado</label>
+            </div>
+
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="text-center">
+                        <a href="/contatos" class="btn btn-light col-md-2">Voltar</a>
+                        <input class="btn btn-info col-md-2" type="submit" value="Salvar">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Aplica a máscara de telefone (99) 99999-9999
+        $('#telefone').mask('(00) 00000-0000', { placeholder: '(__) _____-____' });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#meuFormulario").submit(function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: "/contatos",
+                type: "POST",
+                data: $(this).serialize(),
+                success: function (response) {
+                    // Limpar mensagens de erro anteriores
+                    $("#mensagemErro").empty();
+
+                    if (response.valid) {
+                        // Se a validação for bem-sucedida, envie o formulário
+                        $("#meuFormulario")[0].submit();
+                    } else {
+                        // Se a validação falhar, exiba mensagens de erro
+                        $.each(response.errors, function (key, value) {
+                            $("#mensagemErro").append(value + "<br>");
+                        });
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    // Limpar mensagens de erro anteriores
+                    $("#mensagemErro").empty();
+
+                    if (xhr.status === 400) {
+                        $("#mensagemErro").text("Erro: Os campos não foram preenchidos corretamente. Por favor, revise!");
+                        $("#exceptionAlert").removeClass("d-none");
+                    } else {
+                        // Trate outros erros aqui, se necessário
+                        $("#mensagemErro").text("Erro desconhecido: Por favor, tente novamente!");
+                        $("#exceptionAlert").removeClass("d-none");
+                    }
+                },
             });
-        </script>
-        <script>
-            $(document).ready(function () {
-                $("#meuFormulario").submit(function (event) {
-                    event.preventDefault();
-
-                    $.ajax({
-                        url: "/contatos",
-                        type: "POST",
-                        data: $(this).serialize(),
-                        success: function (response) {
-                            // Limpar mensagens de erro anteriores
-                            $("#mensagemErro").empty();
-
-                            if (response.valid) {
-                                // Se a validação for bem-sucedida, envie o formulário
-                                $("#meuFormulario")[0].submit();
-                            } else {
-                                // Se a validação falhar, exiba mensagens de erro
-                                $.each(response.errors, function (key, value) {
-                                    $("#mensagemErro").append(value + "<br>");
-                                });
-                            }
-                        },
-                        error: function (xhr, textStatus, errorThrown) {
-                            // Limpar mensagens de erro anteriores
-                            $("#mensagemErro").empty();
-
-                            if (xhr.status === 400) {
-                                $("#mensagemErro").text("Erro: Os campos não foram preenchidos corretamente. Por favor, revise!");
-                            } else {
-                                // Trate outros erros aqui, se necessário
-                                $("#mensagemErro").text("Erro desconhecido: Por favor, tente novamente!");
-                            }
-                        },
-                    });
-                });
-            });
-        </script>
-    </body>
+        });
+    });
+</script>
+</body>
 </html>
