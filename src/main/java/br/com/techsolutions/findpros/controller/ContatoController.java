@@ -3,6 +3,7 @@ package br.com.techsolutions.findpros.controller;
 import br.com.techsolutions.findpros.domain.Contato;
 import br.com.techsolutions.findpros.domain.DadosCadastroContato;
 import br.com.techsolutions.findpros.repository.ContatoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +33,7 @@ public class ContatoController {
     }
 
     @PostMapping
-    public String cadastraContato(DadosCadastroContato dados) {
+    public String cadastraContato(@Valid DadosCadastroContato dados) {
 
         var contato = new Contato(dados);
         repository.save(contato);
